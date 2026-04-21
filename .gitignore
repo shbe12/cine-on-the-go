@@ -33,3 +33,12 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore Node modules (if using JS bundling / React)
+/node_modules
+
+# Ignore Database files (if using SQLite)
+/db/*.sqlite3
+
+# Ignore System files
+.DS_Store
