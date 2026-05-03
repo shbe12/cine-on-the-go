@@ -6,12 +6,13 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to movie_path(@movie)
     else
+      puts @review.errors.full_messages
       render "movies/show", status: :unprocessable_entity
     end
   end
 
   def edit
-
+    @movie = Movie.find(params[:movie_id])
   end
 
   def update
@@ -24,7 +25,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
+    @review = Review.find(params[:id])
     @review.destroy
     redirect_to movie_path(@review.movie), status: :see_other
   end

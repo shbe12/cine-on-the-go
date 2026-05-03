@@ -3,3 +3,25 @@
 <p>Year: <%= @movie.year %></p>
 <p>Director: <%= @movie.director %></p>
 <p>Genre: <%= @movie.genre %></p>
+
+<%= render "reviews/form", movie: @movie, review: @review %>
+
+<%# <% if current_user %> %>
+  <%# <%= link_to "Add a review", new_movie_review_path(@movie) %> %>
+<%# <% end %> %>
+
+<h3>Reviews:</h3 >
+<% @reviews.each do |review| %>
+  <div>
+    <p><%= review.content %></p>
+    <%# <p>Rating: <%= review.rating %></p> %>
+    <p>Rating: <%= "⭐" * review.rating %></p>
+    <%# <% if current_user && current_user == review.user %> %>
+      <%= link_to "Edit", edit_movie_review_path(@movie,review) %>
+      <%# <%= link_to "Delete", movie_review_path(@movie,review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> %>
+      <%= button_to "Delete", movie_review_path(@movie, review),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?" } %>
+    <%# <% end %> %>
+  </div>
+<% end %>

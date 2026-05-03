@@ -1,12 +1,7 @@
 <p style= "color: green">
 
 <ul>
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-      <p>
-        <%= link_to "Show this movie", movie %>
-      </p>
-  <% end %>
+    <%= render @movies %>
 </ul>
 
 <%# <%= link_to "Add a new movie", new_movie_path %>

@@ -1,26 +1,28 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie, only: [:show, :destroy]
   def index
     @movies = Movie.all
   end
 
   def top
-    @movies = Movie.where(rating: 5)
+    @movies = Movie.top_rated
   end
 
   def show
+    @review = Review.new
+    @reviews = @movie.reviews
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    if @movie.update(movie_params)
-      redirect_to movie_path(@movie)
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @movie.update(movie_params)
+  #     redirect_to movie_path(@movie)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   def destroy
     @movie.destroy
