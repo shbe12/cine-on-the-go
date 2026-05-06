@@ -1,8 +1,12 @@
+<div class="card-movie">
+ <div class="d-flex justify-content-between align-items-start mb-3">
 <div id="<%= dom_id movie%>">
   <h2><%= movie.title %></h2>
   <p><%= movie.description %></p>
   <p>Year: <%= movie.year %></p>
   <p>Director: <%= movie.director %></p>
   <p>Genre: <%= movie.genre %></p>
-   <%= link_to "Show this movie", movie %>
+   <%= link_to "Show this movie", movie , class: "btn-flat" %>
+</div>
+</div>
 </div>

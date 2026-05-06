@@ -8,6 +8,19 @@ gem "rails", "~> 7.1.6"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem "sassc-rails"
+
+gem "bootstrap", "~> 5.3"
+
+gem "font-awesome-sass", "~> 6.1"
+
+gem "autoprefixer-rails"
+
+group :development do
+    # [...]
+    gem "hotwire-livereload"
+end
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
 

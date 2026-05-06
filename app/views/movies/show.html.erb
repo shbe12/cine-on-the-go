@@ -19,9 +19,9 @@
     <%# <% if current_user && current_user == review.user %> %>
       <%= link_to "Edit", edit_movie_review_path(@movie,review) %>
       <%# <%= link_to "Delete", movie_review_path(@movie,review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> %>
-      <%= button_to "Delete", movie_review_path(@movie, review),
+      <%= link_to "Delete", movie_review_path(@movie, review),
       method: :delete,
-      data: { turbo_confirm: "Are you sure?" } %>
+      data: { turbo_confirm: "Are you sure?" }, class: "btn-flat" %>
     <%# <% end %> %>
   </div>
 <% end %>
