@@ -193,6 +193,13 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.2-x86_64-linux-musl)
       racc (~> 1.4)
+    pg (1.6.3)
+    pg (1.6.3-aarch64-linux)
+    pg (1.6.3-aarch64-linux-musl)
+    pg (1.6.3-arm64-darwin)
+    pg (1.6.3-x86_64-darwin)
+    pg (1.6.3-x86_64-linux)
+    pg (1.6.3-x86_64-linux-musl)
     popper_js (2.11.8)
     pp (0.6.3)
       prettyprint
@@ -338,13 +345,14 @@ DEPENDENCIES
   hotwire-livereload
   importmap-rails
   jbuilder
+  pg
   puma (>= 5.0)
   rails (~> 7.1.6)
   sassc-rails
   selenium-webdriver
   simple_form
   sprockets-rails
-  sqlite3 (>= 1.4)
+  sqlite3
   stimulus-rails
   turbo-rails
   tzinfo-data
