@@ -42,3 +42,4 @@
 
 # Ignore System files
 .DS_Store
+.env*

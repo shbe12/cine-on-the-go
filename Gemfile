@@ -28,6 +28,7 @@ gem "solid_cable"
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "sqlite3"
+  gem "dotenv-rails"
 end
 
 group :production do
