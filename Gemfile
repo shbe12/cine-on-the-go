@@ -21,6 +21,10 @@ group :development do
     gem "hotwire-livereload"
 end
 
+gem "solid_queue"
+gem "solid_cache"
+gem "solid_cable"
+
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "sqlite3"
