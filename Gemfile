@@ -16,6 +16,8 @@ gem "font-awesome-sass", "~> 6.1"
 
 gem "autoprefixer-rails"
 
+gem "cloudinary"
+
 group :development do
     # [...]
     gem "hotwire-livereload"
