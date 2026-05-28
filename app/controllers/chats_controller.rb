@@ -1,4 +1,6 @@
 class ChatsController < ApplicationController
+  SYSTEM_PROMPT = "You are an assistant for a movie suggestion application.\n\nThe task is to help answer the questions of the customers."
+  before_action :authenticate_user!
   def index
     @chats = Chat.all
   end
