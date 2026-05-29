@@ -7,16 +7,36 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require "open-uri"
+
 puts "Cleaning database..."
 Movie.destroy_all
 
-puts "Creating movies..."
-Avatar = {title: "Avatar", description: "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.", year: 2009, director: "James Cameron", genre: "Action"}
-Titanic = {title: "Titanic", description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.", year: 1997, director: "James Cameron", genre: "Romance"}
-Inception = {title: "Inception", description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.", year: 2010, director: "Christopher Nolan", genre: "Sci-Fi"}
+puts "Fetching movies from TMDB..."
 
-[Avatar, Titanic, Inception].each do |attributes|
-  movie = Movie.create!(attributes)
+service = TmdbService.new
+movies = service.fetch_popular_movies
+
+movies.each do |m|
+  movie = Movie.create!(
+    title: m["title"],
+    description: m["overview"],
+    year: m["release_date"]&.first(4),
+    director: "Unknown", # TMDB needs extra API call for director (optional upgrade)
+    genre: "Movie"
+  )
+
+  if m["poster_path"]
+    file = URI.open(service.poster_url(m["poster_path"]))
+
+    movie.poster.attach(
+      io: file,
+      filename: "#{m["title"].parameterize}.jpg",
+      content_type: "image/jpeg"
+    )
+  end
+
   puts "Created #{movie.title}"
 end
-puts "Finished!"
+
+puts "Done!"

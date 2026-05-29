@@ -3,6 +3,7 @@
 <p>Year: <%= @movie.year %></p>
 <p>Director: <%= @movie.director %></p>
 <p>Genre: <%= @movie.genre %></p>
+<%= cl_image_tag(@movie.poster.key, width: 400, height: 300, crop: :fill) if @movie.poster.attached? %>
 
 <%= render "reviews/form", movie: @movie, review: @review %>
 

@@ -5,6 +5,7 @@ class Movie < ApplicationRecord
   validates :director, presence: true
   validates :genre, presence: true
   has_many :reviews, dependent: :destroy
+  has_one_attached :poster
 
   def self.top_rated
     Movie.joins(:reviews)
