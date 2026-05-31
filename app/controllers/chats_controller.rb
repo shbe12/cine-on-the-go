@@ -11,6 +11,12 @@ class ChatsController < ApplicationController
 
   def new
     @chat = Chat.new
+    if params[:movie_id].present?
+      @movie = Movie.find(params[:movie_id])
+
+    else
+      @movie = nil
+    end
   end
 
   def create
